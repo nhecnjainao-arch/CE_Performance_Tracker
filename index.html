@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CE Performance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">CE</div><div><b>CE Performance</b><span>Tracker</span></div></div>
+    <nav>
+      <button class="nav active" data-view="dashboard">📊 Dashboard</button>
+      <button class="nav" data-view="ranking">🏆 Employee Ranking</button>
+      <button class="nav" data-view="weekly">📅 Weekly</button>
+      <button class="nav" data-view="monthly">📆 Monthly</button>
+      <button class="nav" data-view="employees">👤 Employee History</button>
+      <button class="nav" data-view="upload">📤 Upload Excel</button>
+      <button class="nav" data-view="settings">⚙️ Settings</button>
+    </nav>
+    <div class="sidebar-foot">Data is stored locally in this browser.</div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div>
+        <h1 id="pageTitle">Dashboard</h1>
+        <p id="pageSubtitle">Upload an Excel export to calculate performance automatically.</p>
+      </div>
+      <button class="primary" id="quickUpload">📤 Upload Excel</button>
+    </header>
+
+    <section class="toolbar">
+      <label>Team
+        <select id="teamFilter">
+          <option value="ALL">All Employees</option>
+          <option value="EAST">East Team</option>
+        </select>
+      </label>
+      <label>Period
+        <select id="periodFilter"><option value="ALL">All Periods</option></select>
+      </label>
+      <label>Search
+        <input id="searchFilter" placeholder="Search CE name/code...">
+      </label>
+      <button class="secondary" id="clearFilters">Clear</button>
+    </section>
+
+    <div id="content"></div>
+  </main>
+</div>
+
+<input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+
+<div class="modal" id="uploadModal">
+  <div class="modal-card">
+    <button class="modal-close" id="closeModal">×</button>
+    <h2>Upload Performance Excel</h2>
+    <p>Upload your latest Excel export. The system will keep previous records and add the new upload.</p>
+    <div class="dropzone" id="dropzone">Drop Excel here or <b>click to browse</b><small>Supported: .xlsx, .xls, .csv</small></div>
+    <div id="uploadStatus" class="status"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
