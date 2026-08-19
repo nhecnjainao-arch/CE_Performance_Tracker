@@ -1,36 +1,10 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CE Performance Tracker</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-</head><body>
-<div class="app">
-<aside><div class="brand"><b>CE</b><span>Performance Tracker</span></div>
-<nav>
-<button class="nav active" data-view="dashboard">📊 Dashboard</button>
-<button class="nav" data-view="ranking">🏆 Ranking</button>
-<button class="nav" data-view="weekly">📅 Weekly</button>
-<button class="nav" data-view="monthly">📆 Monthly</button>
-<button class="nav" data-view="employees">👤 Employees</button>
-<button class="nav" data-view="upload">📤 Upload Excel</button>
-<button class="nav" data-view="teams">👥 Teams</button>
-<button class="nav" data-view="settings">⚙️ Rules</button>
-</nav></aside>
-<main>
-<header><div><h1 id="title">Dashboard</h1><p id="subtitle">Weekly and monthly CE performance ranking</p></div>
-<button id="uploadBtn" class="primary">📤 Upload Excel</button></header>
-<div class="filters">
-<label>Team<select id="team"></select></label>
-<label>Period<select id="period"></select></label>
-<label>Search Name / CE Code<input id="search" type="search" placeholder="Type employee name or CE code..." autocomplete="off"></label>
-<button id="clear" class="secondary">Clear</button>
-</div>
-<section id="content"></section>
-</main></div>
-<input id="file" type="file" accept=".xlsx,.xls,.csv" hidden>
-<div id="modal" class="modal"><div class="modalbox"><button id="close" class="x">×</button>
-<h2>Upload Performance Excel</h2><p>New records are added to the browser database.</p>
-<div id="drop" class="drop">📤<br><b>Click or drop Excel file here</b><small>.xlsx, .xls, .csv</small></div>
-<p id="status"></p></div></div>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CE Performance Ranking</title><link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script></head>
+<body><aside><h2>CE Performance</h2>
+<button data-p="dashboard">Dashboard</button><button data-p="ranking">Ranking</button><button data-p="weekly">Weekly</button><button data-p="monthly">Monthly</button><button data-p="employees">Employees</button><button data-p="teams">Teams</button><button data-p="rules">Rules</button>
+</aside><main><header><div><h1 id="title">Dashboard</h1><p id="sub">Customer Engineer performance monitoring</p></div><button id="upload">Upload Excel</button></header>
+<div class="filters"><select id="team"></select><select id="period"></select><input id="search" placeholder="Search CE name or CE code"><button id="clear">Clear</button></div>
+<section id="app"></section></main>
+<div id="modal"><div class="modalbox"><button id="close">×</button><h2>Upload Excel</h2><p>Upload .xlsx, .xls or .csv. The first worksheet is imported.</p><input type="file" id="file" accept=".xlsx,.xls,.csv"></div></div>
 <script src="app.js"></script></body></html>
